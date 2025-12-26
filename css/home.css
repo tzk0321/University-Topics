@@ -1,0 +1,314 @@
+@charset "UTF-8";
+body{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: rgb(249,245,239);
+}
+
+/* =========================================
+   Header 樣式 (終極修正版：Logo 不會跑掉)
+   ========================================= */
+header {
+    height: 75px;
+    width: 100%;
+    background-color: rgb(233,230,225);
+    
+    /* 讓 header 內的左右兩塊推到最旁邊 */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; /* ★ 垂直置中 */
+    
+    padding: 0 40px; 
+    box-sizing: border-box;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- 左側區塊 (Logo + 選單) --- */
+.top-start {
+    height: 100%;
+    display: flex;
+    align-items: center; /* 確保裡面的 ul 垂直置中 */
+}
+
+.dropdown {
+    display: flex;
+    align-items: center; /* 確保裡面的 li 垂直置中 */
+    gap: 10px; /* 選單項目之間的距離 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+}
+
+.dropbtn {
+    height: 100%; /* 讓按鈕高度撐滿 header */
+    display: flex;
+    align-items: center; /* 讓裡面的 a 標籤垂直置中 */
+}
+
+/* ★ 修改重點：連結樣式 */
+.dropbtn a {
+    color: rgb(141,168,163);
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 15px; /* 增加左右內距 */
+    
+    /* 改用 Flex 來置中，不管是文字還是圖片都不會跑掉 */
+    display: flex; 
+    align-items: center; 
+    height: 100%; 
+    
+    transition: color 0.3s;
+}
+
+.dropbtn a:hover {
+    color: rgb(108, 155, 155);
+}
+
+/* 確保 Logo 圖片不會受到文字樣式影響 */
+.dropbtn img {
+    display: block; /* 消除圖片下方的空白 */
+    max-height: 60px; /* 限制最大高度，避免撐爆 header */
+    width: auto; /* 寬度自動 */
+}
+
+/* --- 右側區塊 (搜尋 + Icon) --- */
+.top-end {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+}
+
+/* 搜尋框樣式 (恢復你的設計) */
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 220px;
+    height: 35px;
+    border-radius: 25px;
+    background-color: #f2f4f8;
+    border: 1px solid #e0e0e0;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.search-box {
+    border: 0;
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    color: #555;
+}
+
+.search-icon {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+}
+
+/* Icon 區域 */
+.notifications, .account {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.notifications a, .account a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.notifications img, .account img {
+    width: 28px;
+    height: 28px;
+}
+
+
+
+
+
+/* 輪播 (Carousel) */
+#carouselExampleIndicators{
+    position: absolute;
+    top: 75px;
+    left: 0px;
+}
+
+
+/* 垂直堆疊 (Vertical Stack) */
+.cookbook-container {
+            /* 【修改 1】高度改為 520px */
+            height: 475px; 
+            width: 100%;
+            max-width: 600px;
+            
+            position: relative; 
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+        }
+
+        /* =========================================
+           2. 滾動區域 (The Scrollable Area)
+           ========================================= */
+        .cookbook-scroll {
+            width: 100%;
+            height: 100%;
+            
+            overflow-y: auto; 
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            
+            padding: 20px; 
+            
+            /* 【修改 2】底部留白增加至 180px */
+            /* 讓最後一張卡片有足夠的空間捲到頂部 (520 - 350 + buffer) */
+            padding-bottom: 180px; 
+            
+            box-sizing: border-box;
+
+            /* 隱藏 Firefox 捲軸 */
+            scrollbar-width: none; 
+        }
+
+        /* 隱藏 Webkit (Chrome/Safari/Edge) 捲軸 */
+        .cookbook-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* =========================================
+           3. 卡片 (The Cards)
+           ========================================= */
+        .cb-card {
+            position: sticky;
+            top: 20px; 
+            
+            height: 350px; /* 卡片高度維持不變 */
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.07);
+            
+            margin-bottom: 30px;
+            padding: 35px;
+            box-sizing: border-box;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            transform-origin: center top;
+            transition: transform 0.1s linear, filter 0.1s linear;
+        }
+
+        .cb-card h3 { margin: 0 0 15px 0; font-size: 1.8rem; color: #222; line-height: 1.2; }
+        .cb-card p { font-size: 1.05rem; line-height: 1.6; color: #555; margin: 0; }
+        .cb-source { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; font-weight: 600; }
+
+        /* =========================================
+           4. 按鈕 (Controls)
+           ========================================= */
+        .cb-controls {
+            position: absolute;
+            top: 50%; 
+            right: 25px;
+            transform: translateY(-50%); /* 自動垂直置中，不受高度影響 */
+            
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cb-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: white;
+            color: #555;
+            border: 1px solid #eee;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+        }
+        .cb-btn:hover { background: #f5f5f5; color: #000; box-shadow: 0 6px 15px rgba(0,0,0,0.12); transform: scale(1.05); }
+        .cb-btn:active { transform: scale(0.95); background: #eee; }
+        .cb-btn svg { width: 20px; height: 20px; stroke-width: 1.5; }
+
+
+/* footer */
+footer{
+    width: 100%;
+    padding-bottom: 30px;
+    height: 275px;
+    position: relative;
+    margin-top: 75px;
+    background-color: rgb(134,157,157);
+    display: flex;
+    justify-content: start;
+}
+
+.all{
+    width: 80%;
+    height: 255px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.information{
+    color: rgb(216,216,205);
+    height: 200px;
+
+}
+
+.links, .smthing{
+    color: rgb(216,216,205);
+    height: 200px;
+    width: 300px;
+}
+
+.social{
+    color: rgb(216,216,205);
+    height: 200px;
+    width: 175px;
+}
+
+.links a{
+    color: rgb(216,216,205);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+
+
+
+
