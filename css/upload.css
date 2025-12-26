@@ -1,0 +1,418 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+body{
+    background-color: rgb(249,245,239);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    height: 75px;
+    width: 100%;
+    background-color: rgb(233,230,225);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.top-start{
+    width: 50%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+}
+.dropdown{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+.dropbtn a{
+    color: rgb(141,168,163);
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+}
+li,
+ul{
+    list-style-type: none;
+}
+
+.top-end{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #f2f4f8;
+    border-color: black;
+}
+.search-box{
+    border: 0;
+    background-color: #f2f4f8;
+    border-radius: 20px;
+    width: 75%;
+    outline: none;
+    font-size: 16px;
+}
+.search-icon{
+    border: 0.5px solid #f2f4f8;
+    width: 25%;
+    border-radius: 25px;
+}
+
+
+/* 列表群組 (list-group) */
+.list-group{
+    font-size: 20px;
+    margin-left: 150px;
+}
+.list-group-item.my-custom-color.active{
+    color: rgb(141,168,163);
+    background: rgb(233,230,225);
+    border: none;
+}
+.list-group-item.my-custom-color:hover {
+    background: rgb(141,168,163);
+    color: #f2f4f8;
+    border: none;
+}
+
+
+
+/* 上傳區 */
+.list-group-scroll-container{
+    width: 85%;
+    position: relative;
+    margin-top: 105px;
+    margin-right: 9%;
+    /*background: rgb(141,168,163);*/
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+.uploadForm{
+    width: 65%;
+    margin-top: 45px;
+    margin-left: 95px;
+}
+.scrollspy-example {
+    height: 425px; 
+    overflow-y: scroll; 
+}
+.scrollspy-example::-webkit-scrollbar {
+    width: 8px; 
+}
+.scrollspy-example::-webkit-scrollbar-track {
+    background: rgb(233,230,225);
+    border-radius: 10px;
+}
+.scrollspy-example::-webkit-scrollbar-thumb {
+    background: rgb(166, 194, 189);
+    border-radius: 10px;
+}
+
+.scrollspy-example::-webkit-scrollbar-thumb:hover {
+    background: rgb(141,168,163);
+}
+.uploadForm{
+    p{
+        font-size: 18px;
+    }
+}
+.custom-input1 {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 200px;
+    padding: 3px 5px;
+    
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff; 
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.custom-input2{
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 70px;
+    padding: 3px 5px;
+    
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff; 
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    text-align: center;
+}
+.custom-input3{
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 400px;
+    padding: 3px 5px;
+    
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff; 
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.custom-input1:hover, 
+.custom-input2:hover,
+.custom-input3:hover {
+    border-color: #999;
+}
+.datetime-input-style {
+    font-size: 16px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    color: #333;
+    background-color: #fff;
+    width: 250px;
+    
+    height: 30px; 
+    line-height: 40px; 
+    box-sizing: border-box; 
+
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+}
+.custom-input1:focus,
+.custom-input2:focus,
+.custom-input3:focus,
+.datetime-input-style:focus {
+    outline: none; 
+    border-color: rgb(134,157,157); 
+    box-shadow: 0 0 0 4px rgba(133, 192, 192, 0.25);
+}
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    display: none;
+}
+.tag {
+    display: inline-block;
+    padding: 0;
+    margin: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.tag-text {
+    display: inline-block;
+    padding: 5px 13px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+    color: #333;
+    background-color: #f7f7f7;
+    font-size: 18px;
+}
+.tag:hover .tag-text {
+    background-color: #dedede;
+}
+input[type="checkbox"]:checked + .tag-text{
+    border-color: rgb(167, 203, 203);
+    background-color: rgb(134,157,157);
+    color: white;
+    font-weight: bold;
+}
+.uploadbtn{
+    width: 85px;
+    height: 35px;
+    background: rgb(233,230,225);
+    border: 2px solid rgb(227, 220, 217);
+    border-radius: 5px;
+}
+.uploadbtn:hover{
+    background: rgb(134,157,157);
+    border: none;
+}
+
+
+
+/* footer */
+footer{
+    width: 100%;
+    height: 275px;
+    position: relative;
+    margin-top: 75px;
+    background-color: rgb(134,157,157);
+    display: flex;
+    justify-content: start;
+}
+
+.all{
+    width: 80%;
+    height: 275px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.information{
+    color: rgb(216,216,205);
+    height: 200px;
+
+}
+
+.links, .smthing{
+    color: rgb(216,216,205);
+    height: 200px;
+    width: 300px;
+}
+
+.social{
+    color: rgb(216,216,205);
+    height: 200px;
+    width: 175px;
+}
+
+.links a{
+    color: rgb(216,216,205);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+
+/* 預覽 
+.card{
+    aspect-ratio: 1/1;
+    mix-blend-mode: color-burn;
+    overflow: hidden;
+    position: relative;
+    transform: 0.5s;
+    cursor: pointer;
+}
+.card img{
+    object-fit: cover;
+    pointer-events: none;
+    transition: 0.5s;
+}*/
+
+
+
+
+    .upload-container {
+        margin-top: 120px;
+        width: 90%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 50px;
+    }
+
+    /* 左邊：表單區 */
+    .form-section {
+        flex: 1;
+        min-width: 350px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+    .form-control {
+        width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; box-sizing: border-box;
+    }
+    .btn-submit {
+        width: 100%; background: rgb(141,168,163); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 20px;
+    }
+    .btn-submit:hover { background: rgb(108, 155, 155); }
+
+    /* 右邊：預覽區 (Sticky 讓它跟著捲動) */
+    .preview-section {
+        flex: 0 0 300px; /* 固定寬度 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: sticky;
+        top: 100px; /* 捲動時固定在上方 */
+    }
+
+    .preview-label {
+        margin-bottom: 15px; font-size: 18px; color: #444; font-weight: bold; border-left: 5px solid rgb(141,168,163); padding-left: 10px;
+    }
+
+    /* --- ★★★ 你的卡片樣式 (完全複製過來) ★★★ --- */
+    .food-item {
+        height: 305px;
+        width: 220px;
+        mix-blend-mode: normal; 
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.5s, box-shadow 0.3s;
+        cursor: pointer;
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    .food-item:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
+    .img-card { width: 100%; height: 100%; background: #eee; display: flex; justify-content: center; align-items: center; }
+    .food-item img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform 0.7s; }
+    .food-item:hover img { transform: scale(1.1); }
+    .food-item .layer {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+        position: absolute; bottom: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s;
+    }
+    .food-item:hover .layer { opacity: 1; }
+    .info {
+        position: absolute; bottom: -60%; left: 0; width: 100%; padding: 15px; box-sizing: border-box; 
+        opacity: 0; color: white; z-index: 2; transition: bottom 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s; text-align: left;
+    }
+    .food-item:hover .info { bottom: 0; opacity: 1; }
+    .info h4 { margin: 0 0 8px 0; font-size: 18px; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .info p { font-size: 14px; margin: 0; line-height: 1.5; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+    .btn-view {
+        background: rgb(141,168,163); color: rgb(233,230,225); border: none; padding: 6px 15px; 
+        font-weight: bold; border-radius: 8px; margin-top: 10px; cursor: pointer; display: inline-block; box-shadow: 0 2px 5px rgba(0,0,0,0.2); font-size: 13px;
+    }

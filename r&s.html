@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的預約/分享 | food sharing</title>
+    <link rel="shortcut icon" href="img/favorites.png" type="image/x-icon">
+    <link rel="stylesheet" href="../2.0/css/r&s.css">
+    <style>
+        article{
+            display: flexbox; 
+            justify-content: center; 
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0 0 8px rgba(161, 161, 161, 0.3);
+        }
+
+        .product_title{
+            padding: 10px;
+            cursor: pointer;
+            background-color: rgb(141,168,163);
+            color: #fff;
+            font-size: 16px;
+            position: relative;
+            &::after {
+                content: '';
+                width: 6px;
+                height: 6px;
+                border-top: 2px solid #fff;
+                border-right: 2px solid #fff;
+                position: absolute;
+                top: 17px;
+                right: 20px;
+                transform: rotate(135deg);
+                transition: all 0.5s;
+            }
+            &:hover {
+                background-color: rgb(108, 155, 155);
+            }
+        }
+
+        .arrow-rotate {
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+
+        .product_details{
+            max-height: 0;
+            padding: 0 10px;
+            overflow: hidden;
+            border: 1px solid rgba(92, 144, 145, 0.3);
+            background-color: #fff;
+            font-size: 14px;
+            display: flex;
+            justify-content: start;
+            transition: max-height 0.5s ease-out;
+            p {
+                margin: 10px 0;
+                color: rgb(141,168,163);
+                background-color: #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-start">
+            <ul class="dropdown">
+                <li class="dropbtn"><a href="home.html"><img src="../2.0/img/logo.png" style="width: 90px;"></a></li>
+                <li class="dropbtn"><a href="#"> 食物 </a>
+                    <ul class="dropdown-content"> 
+                        <li><a href="#"> 熟食 </a></li>
+                        <li><a href="#"> 生鮮食品 </a></li>
+                        <li><a href="#"> 乾糧 </a></li>
+                    </ul>
+                </li>
+                <li class="dropbtn"><a href="upload.html">上傳料理</a></li>
+                <li class="dropbtn"><a href="r&s.html">我的預約/分享</a></li>
+                <li class="dropbtn"><a href="#">關於我們</a></li>
+                <li class="dropbtn"><a href="#">常見問題</a></li>
+            </ul>
+        </div>
+        <div style="color: rgb(233,230,225); width: 25%;"><b>&nbsp;|&nbsp;</b></div>
+        <div class="top-end">
+            <div class="search">
+                <input class="search-box" type="text" placeholder="search">
+                <button class="search-icon"><img src="../2.0/img/search.png"></button>
+            </div>
+            <div class="shopping-cart">
+                <a href="#">
+                    <img src="../2.0/img/shoppingcart.png">
+                </a>
+            </div>
+            <div class="account">
+                <a href="member.php">
+                    <img src="../2.0/img/account.png">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <article style="margin-top: 150px; margin-left: 100px; width: 85%; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+        <div class="reserve-record" style="width: 70%; display: flexbox; justify-self: start;">
+            <h1>預約紀錄</h1>
+            <div id="product-container-1" class="container">
+            </div>
+        </div>
+        
+        <div class="share-record" style="width: 70%; display: flexbox; justify-self: start; margin-top: 50px;">
+            <h1>分享紀錄</h1>
+            <div id="product-container-2" class="container">
+            </div>
+        </div>
+        
+    </article>
+    
+
+    <script src="r&s.js"></script>
+</body>
+</html>

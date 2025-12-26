@@ -1,0 +1,406 @@
+@charset "UTF-8";
+
+/* =========================================================
+   1. 你原本的 CSS (Header, Body, Search) - 完全不動
+   ========================================================= */
+body{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: rgb(249,245,239);
+}
+header {
+    height: 75px;
+    width: 100%;
+    background-color: rgb(233,230,225);
+    
+    /* 讓 header 內的左右兩塊推到最旁邊 */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; /* ★ 垂直置中 */
+    
+    padding: 0 40px; 
+    box-sizing: border-box;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- 左側區塊 (Logo + 選單) --- */
+.top-start {
+    height: 100%;
+    display: flex;
+    align-items: center; /* 確保裡面的 ul 垂直置中 */
+}
+
+.dropdown {
+    display: flex;
+    align-items: center; /* 確保裡面的 li 垂直置中 */
+    gap: 10px; /* 選單項目之間的距離 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+}
+
+.dropbtn {
+    height: 100%; /* 讓按鈕高度撐滿 header */
+    display: flex;
+    align-items: center; /* 讓裡面的 a 標籤垂直置中 */
+}
+
+/* ★ 修改重點：連結樣式 */
+.dropbtn a {
+    color: rgb(141,168,163);
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 15px; /* 增加左右內距 */
+    
+    /* 改用 Flex 來置中，不管是文字還是圖片都不會跑掉 */
+    display: flex; 
+    align-items: center; 
+    height: 100%; 
+    
+    transition: color 0.3s;
+}
+
+.dropbtn a:hover {
+    color: rgb(108, 155, 155);
+}
+
+/* 確保 Logo 圖片不會受到文字樣式影響 */
+.dropbtn img {
+    display: block; /* 消除圖片下方的空白 */
+    max-height: 60px; /* 限制最大高度，避免撐爆 header */
+    width: auto; /* 寬度自動 */
+}
+
+/* --- 右側區塊 (搜尋 + Icon) --- */
+.top-end {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+}
+
+/* 搜尋框樣式 (恢復你的設計) */
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 220px;
+    height: 35px;
+    border-radius: 25px;
+    background-color: #f2f4f8;
+    border: 1px solid #e0e0e0;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.search-box {
+    border: 0;
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    color: #555;
+}
+
+.search-icon {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+}
+
+/* Icon 區域 */
+.notifications, .account {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.notifications a, .account a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.notifications img, .account img {
+    width: 28px;
+    height: 28px;
+}
+
+
+     .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff3b30; /* 紅色 */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid white; /* 讓紅點跟圖案有點間隔 */
+}
+
+/* 下拉選單容器 (預設隱藏) */
+.notif-dropdown {
+    display: none; /* 隱藏 */
+    position: absolute;
+    top: 40px; /* 在鈴鐺下方 */
+    right: 0;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1000;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+/* 當滑鼠移到 .notifications 上時，顯示下拉選單 */
+/* 也可以改成用點擊觸發 JS，這裡先用 CSS hover 比較簡單 */
+.notifications:hover .notif-dropdown {
+    display: block;
+}
+
+/* 通知標題 */
+.notif-header {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+/* 單條通知 */
+.notif-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+
+.notif-item:hover {
+    background-color: #fafafa;
+}
+
+/* 未讀通知的樣式 (稍微深一點的背景或粗體) */
+.notif-item.unread {
+    background-color: #fff8e1; /* 淺橘黃色背景 */
+    border-left: 3px solid #ff9800;
+}
+
+.notif-item:last-child {
+    border-bottom: none;
+}
+
+
+
+
+/* footer */
+        footer{
+            width: 100%;
+            padding-bottom: 30px;
+            height: 275px;
+            position: relative;
+            margin-top: 75px;
+            background-color: rgb(134,157,157);
+            display: flex;
+            justify-content: start;
+        }
+
+        .all{
+            width: 80%;
+            height: 255px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .information{
+            color: rgb(216,216,205);
+            height: 200px;
+
+        }
+
+        .links, .smthing{
+            color: rgb(216,216,205);
+            height: 200px;
+            width: 300px;
+        }
+
+        .social{
+            color: rgb(216,216,205);
+            height: 200px;
+            width: 175px;
+        }
+
+        .links a{
+            color: rgb(216,216,205);
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+
+
+
+
+
+
+/* =========================================================
+   2. 下方內容區塊樣式 (整合自你原本 HTML 裡的 <style>)
+   ========================================================= */
+
+/* 版面容器 */
+article {
+    margin-top: 150px;
+    /* 這裡依照你原本 HTML style 裡的設定 */
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* 讓內容靠上對齊 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 讓紀錄區塊寬度足夠 */
+.reserve-record, .share-record {
+    width: 70%; /* 你原本設定的寬度 */
+    margin-bottom: 50px;
+}
+
+.reserve-record h1, .share-record h1 {
+    /* 讓標題顏色跟你的一致 */
+    color: #444; 
+}
+
+/* 容器樣式 */
+.container {
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 0 8px rgba(161, 161, 161, 0.3);
+    border-radius: 5px; /* 加一點圓角比較好看 */
+    background-color: #fff;
+}
+
+/* 手風琴標題 (完全保留你的設計) */
+.product_title {
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(141,168,163);
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+    /* 為了讓狀態文字排版正常 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product_title:hover {
+    background-color: rgb(108, 155, 155);
+}
+
+/* 箭頭樣式 */
+.product_title::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    transform: rotate(135deg);
+    transition: all 0.5s;
+}
+
+/* 當有 active class 時旋轉箭頭 */
+.product_title.active::after {
+    transform: rotate(-45deg);
+    top: 20px;
+}
+
+/* 手風琴內容區塊 */
+.product_details {
+    max-height: 0;
+    padding: 0 10px;
+    overflow: hidden;
+    border: 1px solid rgba(92, 144, 145, 0.3);
+    background-color: #fff;
+    font-size: 14px;
+    /* 讓內容可以正常顯示 */
+    display: block; 
+    transition: max-height 0.5s ease-out, padding 0.3s ease;
+}
+
+.product_details.open {
+    padding: 10px; /* 展開時給點內距 */
+}
+
+.product_details p {
+    margin: 10px 0;
+    color: rgb(141,168,163);
+    background-color: #fff;
+}
+
+/* =========================================================
+   3. 為了 PHP 資料顯示所需要的額外小元件
+   ========================================================= */
+
+/* 內容排版：左圖右文 */
+.detail-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.food-img {
+    width: 100px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.info-text {
+    flex: 1;
+}
+
+/* 按鈕樣式 (審核用) */
+.btn { 
+    padding: 5px 15px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    color: white; 
+    margin-right: 10px; 
+    font-size: 14px; 
+}
+.btn-accept { background-color: #4CAF50; } /* 綠色 */
+.btn-reject { background-color: #F44336; } /* 紅色 */
+
+/* 狀態小標籤 (顯示在標題列右邊) */
+.status-badge {
+    font-size: 13px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.2);
+    margin-right: 30px; /* 避開箭頭 */
+}
